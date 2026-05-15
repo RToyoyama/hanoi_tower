@@ -1,0 +1,95 @@
+# =============================================================================
+# config/config.yml
+# =============================================================================
+# Arquivo central de configuração da Torre de Hanói.
+# Todas as variáveis de comportamento, visual e limites ficam aqui.
+# O código nunca usa valores hardcoded — sempre lê deste arquivo.
+# =============================================================================
+
+
+# jogo — parâmetros de execução da partida
+
+jogo:
+  # Número padrão de discos quando o usuário não passa argumento
+  discos_padrao: 3
+
+  # Limite máximo de discos aceito pela CLI (acima disso, rejeita com erro)
+  discos_maximo: 25
+
+  # Limite mínimo de discos
+  discos_minimo: 1
+
+  # Torre de origem  (onde começam os discos)
+  torre_origem: "A"
+
+  # Torre de destino (onde devem terminar os discos)
+  torre_destino: "C"
+
+  # Torre auxiliar   (usada como espaço temporário)
+  torre_auxiliar: "B"
+
+
+# cli — comportamento padrão da interface de linha de comando
+
+cli:
+  # Exibe o estado das torres após cada movimento?
+  passo_a_passo: false
+
+  # Pausa em segundos entre cada passo (0 = sem pausa)
+  delay_segundos: 0.0
+
+  # Ativa cores ANSI no terminal?
+  colorido: true
+
+  # Exibe apenas a lista de movimentos, sem desenho das torres?
+  so_movimentos: false
+
+
+# visual — aparência da renderização no terminal
+
+visual:
+  # Cores ANSI para os discos (cicladas pelo índice do tamanho do disco)
+  # Formato: código de escape ANSI sem o \033[  (só o número + "m")
+  cores_discos:
+    - "91m"   # vermelho
+    - "93m"   # amarelo
+    - "92m"   # verde
+    - "96m"   # ciano
+    - "94m"   # azul
+    - "95m"   # magenta
+    - "97m"   # branco
+
+  # Caractere usado para preencher o corpo do disco
+  char_disco: "─"
+
+  # Caractere usado para representar o poste vazio
+  char_poste: "|"
+
+  # Caracteres de abertura e fechamento do disco
+  char_bracket_esq: "["
+  char_bracket_dir: "]"
+
+  # Separador entre torres e rótulos
+  char_separador: "─"
+
+  # Rótulos das torres exibidos na base do desenho
+  rotulos: ["A", "B", "C"]
+
+
+# log — saída de informações de execução
+
+log:
+  # Exibe o cabeçalho com total de movimentos esperados?
+  mostrar_cabecalho: true
+
+  # Exibe o estado inicial das torres?
+  mostrar_estado_inicial: true
+
+  # Exibe o estado final das torres?
+  mostrar_estado_final: true
+
+  # Exibe estatísticas (tempo, total de movimentos)?
+  mostrar_estatisticas: true
+
+  # Precisão decimal do tempo de execução (casas decimais)
+  precisao_tempo: 4
